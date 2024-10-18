@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - database
+    environment:
+      - FLASK_APP=${FLASK_APP}
+      - FLASK_DEBUG=${FLASK_DEBUG}
+      - FLASK_ENV=${FLASK_ENV}
+
+  database:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: restaurant_pizza
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
+    expose:
+      - 3306
+    volumes:
+      - ./db-data/mysql:/var/lib/mysql
+
+volumes:
+  db-data:

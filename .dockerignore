@@ -1,0 +1,29 @@
+.idea/
+.vscode/
+.venv/
+*.pyc
+__pycache__/
+Dockerfile
+docker-compose.yml
+
+# Environments
+**/.env
+**/.venv
+**/env/
+**/venv/
+**/ENV/
+**/env.bak/
+**/venv.bak/
+
+# Git
+/.git
+/.gitignore
+
+# Byte-compiled / optimized / DLL files
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+
+# Flask stuff:
+**/instance/
+**/.webassets-cache
